@@ -23,9 +23,9 @@ def fibbonacci_iterative(n: int) -> int:
 @cache
 def fibbonacci_recursive(n: int) -> int:
     """
-    Camputes the n-th Fibonacci number using cache's memory.
-    :param n: The n-th Fibonacci number.
-    :return: The n-th Fibonacci number.
+    Camputes the i-th Fibonacci number using cache's memory.
+    :param n: The i-th Fibonacci number.
+    :return: The i-th Fibonacci number.
     """
     if n < 0:
         raise ValueError("n must be >= 0")
