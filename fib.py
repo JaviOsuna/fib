@@ -1,5 +1,5 @@
 import argparse
-from linecache import cache
+from functools import cache
 
 
 def fibbonacci_iterative(n: int) -> int:
@@ -20,10 +20,7 @@ def fibbonacci_iterative(n: int) -> int:
         n1 = nth
     return nth
 
-
-cache = {}
-
-
+@cache
 def fibbonacci_recursive(n: int) -> int:
     """
     Camputes the n-th Fibonacci number using cache's memory.
@@ -34,12 +31,7 @@ def fibbonacci_recursive(n: int) -> int:
         raise ValueError("n must be >= 0")
     if n < 2:
         return n
-    if n in cache:
-        return cache[n]
-
-    nth = fibbonacci_recursive(n - 1) + fibbonacci_recursive(n - 2)
-    cache[n] = nth
-    return nth
+    return fibbonacci_recursive(n - 1) + fibbonacci_recursive(n - 2)
 
 
 if __name__ == "__main__":
